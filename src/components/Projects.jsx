@@ -12,9 +12,8 @@ export default function Projects() {
                         Apps I've Built
                     </h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                        I am always expanding and creating new personal and professional projects.
-                        These are a mix of frontend and backend projects focusing on showcasing specific skills
-                        and languages.
+                        I am constantly expanding my portfolio with new personal and professional projects that showcase a diverse range of skills in both frontend and backend development.
+                        These projects highlight my proficiency in various programming languages and technologies.
                     </p>
                 </div>
                 <div className="flex flex-wrap -m-4">

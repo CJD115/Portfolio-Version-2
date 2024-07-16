@@ -8,17 +8,17 @@ export default function Skills() {
     useEffect(() => {
         // Initialize ScrollReveal
         const sr = ScrollReveal({
-            origin: 'bottom', // Animation starting point
-            distance: '20px', // Distance the element moves
-            duration: 1000, // Animation duration in milliseconds
-            delay: 100, // Delay before the animation starts
-            easing: 'ease-in-out', // Easing effect
-            reset: true // Reset the animation when scrolling back up
+            origin: 'bottom',
+            distance: '20px',
+            duration: 1000,
+            delay: 300,
+            easing: 'ease-in-out',
+            reset: true
         });
 
-        // Apply the animation to each skills box
+        // Apply the animation to each skill box
         sr.reveal('.reveal');
-    }, []); // Empty dependency array ensures this runs only once when the component mounts
+    }, []);
 
     return (
         <section id="skills">
@@ -29,7 +29,7 @@ export default function Skills() {
                         Skills &amp; Technologies
                     </h1>
                     <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-                        These are the skills/languages I am comfortable in and have been using for an extended period of time
+                        I have developed a strong proficiency in these skills and programming languages over an extended period:
                     </p>
                 </div>
                 <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">

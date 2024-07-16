@@ -1,4 +1,5 @@
 import React from "react";
+import HighlightedSVG from './HighlightedSVG';
 
 export default function About() {
     return (
@@ -11,7 +12,7 @@ export default function About() {
                         apps and webpages.
                     </h1>
                     <p className="mb-8 leading-relaxed">
-                        I’m a professional web developer in Bristol, UK. I have 2 years of experience in frontend and backend web development.
+                        I’m a professional web developer based Bristol and Southampton, UK. I have 2 years of experience in frontend and backend web development.
                     </p>
                     <div className="flex justify-center">
                         <a
