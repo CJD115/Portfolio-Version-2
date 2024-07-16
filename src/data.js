@@ -1,35 +1,35 @@
 export const projects = [
     {
-        title: "React Reserve",
-        subtitle: "MERN Stack",
+        title: "Personal Portfolio",
+        subtitle: "Version One",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-        image: "./project-1.gif",
-        link: "https://reactbootcamp.com",
+            "My original portfolio website using HTML, CSS and JS. A showcase of fundamentals, but using this as a starting point allowed me to build upon the idea",
+        image: "./Portfolio_2.png",
+        link: "",
     },
     {
-        title: "React Tracks",
-        subtitle: "React and Python",
+        title: "Creative Portfolio",
+        subtitle: "A modern take on a portfolio",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-        image: "./project-2.gif",
-        link: "https://reactbootcamp.com",
+            "A opposite showcase of a portfolio compared to the minimalistic portfolio, this was an early design concept inspired by some great developers. Currently WIP",
+        image: "./creative-portfolio.55.59.png",
+        link: "",
     },
     {
-        title: "DevChat",
-        subtitle: "React and Firebase",
+        title: "Email App",
+        subtitle: "React and PHP",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-        image: "./project-3.gif",
-        link: "https://reactbootcamp.com",
+            "A backend focused project showcasing CRUD and mySQL database interaction/relations. Fully working email app with filtering, Read/Unread, Send Emails, Deleted folder",
+        image: "./email-client.png",
+        link: "",
     },
     {
-        title: "Epic Todo App",
-        subtitle: "React Hooks",
+        title: "Furniture Store",
+        subtitle: "PHP",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-        image: "./project-4.gif",
-        link: "https://reactbootcamp.com",
+            "A backend project focused on relational databases working with complex queries to filter and find related items displaying correct categories and IDs for products ",
+        image: "./furniture-store.png",
+        link: "",
     },
 ];
 
@@ -51,10 +51,12 @@ export const testimonials = [
 ];
 
 export const skills = [
+    "HTML",
+    "CSS",
     "JavaScript",
     "React",
-    "Next.js",
-    "Node",
-    "GraphQL",
-    "Material UI",
+    "PHP",
+    "Tailwind",
+    "mySql",
+    "Laravel",
 ];
