@@ -1,4 +1,3 @@
-
 import React from "react";
 
 export default function About() {
@@ -31,7 +30,7 @@ export default function About() {
                     <img
                         className="object-cover object-center rounded"
                         alt="hero"
-                        src="public/coding.svg"
+                        src="/coding.svg"
                     />
                 </div>
             </div>
