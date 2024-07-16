@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BadgeCheckIcon, ChipIcon } from "@heroicons/react/solid";
 import { skills } from "../data";
+import ScrollReveal from 'scrollreveal';
 
 export default function Skills() {
+
+    useEffect(() => {
+        // Initialize ScrollReveal
+        const sr = ScrollReveal({
+            origin: 'bottom', // Animation starting point
+            distance: '20px', // Distance the element moves
+            duration: 1000, // Animation duration in milliseconds
+            delay: 100, // Delay before the animation starts
+            easing: 'ease-in-out', // Easing effect
+            reset: true // Reset the animation when scrolling back up
+        });
+
+        // Apply the animation to each skills box
+        sr.reveal('.reveal');
+    }, []); // Empty dependency array ensures this runs only once when the component mounts
+
     return (
         <section id="skills">
             <div className="container px-5 py-10 mx-auto">
@@ -12,17 +29,17 @@ export default function Skills() {
                         Skills &amp; Technologies
                     </h1>
                     <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-                        These are the skills/languages I am comfortable in and have been using for an extended peroid of time
+                        These are the skills/languages I am comfortable in and have been using for an extended period of time
                     </p>
                 </div>
                 <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                     {skills.map((skill) => (
                         <div key={skill} className="p-2 sm:w-1/2 w-full">
-                            <div className="bg-gray-800 rounded flex p-4 h-full items-center">
+                            <div className="bg-gray-800 rounded flex p-4 h-full items-center reveal">
                                 <BadgeCheckIcon className="text-green-400 w-6 h-6 flex-shrink-0 mr-4" />
                                 <span className="title-font font-medium text-white">
-                  {skill}
-                </span>
+                                    {skill}
+                                </span>
                             </div>
                         </div>
                     ))}

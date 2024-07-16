@@ -37,7 +37,7 @@ export default function Contact() {
                         marginHeight={0}
                         marginWidth={0}
                         style={{ filter: "opacity(0.7)" }}
-                        src="https://www.google.com/maps/embed/v1/place?q=269a+spring+road&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                        src="https://www.google.com/maps/embed/v1/place?q=southampton&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
                     />
                     <div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
                         <div className="lg:w-1/2 px-6">
@@ -53,7 +53,7 @@ export default function Contact() {
                             <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                                 EMAIL
                             </h2>
-                            <a className="text-indigo-400 leading-relaxed">
+                            <a href="mailto:connordavis115@email.com" className="text-indigo-400 leading-relaxed">
                                 connordavis115@email.com
                             </a>
                             <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
@@ -67,12 +67,13 @@ export default function Contact() {
                     netlify
                     name="contact"
                     onSubmit={handleSubmit}
-                    className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+                    className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
+                >
                     <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
                         Hire Me
                     </h2>
                     <p className="leading-relaxed mb-5">
-                        Please reach out for any projects or opportunities! Im open to anything.
+                        Please reach out for any projects or opportunities! I'm open to anything.
                     </p>
                     <div className="relative mb-4">
                         <label htmlFor="name" className="leading-7 text-sm text-gray-400">
@@ -113,7 +114,8 @@ export default function Contact() {
                     </div>
                     <button
                         type="submit"
-                        className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                        className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                    >
                         Submit
                     </button>
                 </form>

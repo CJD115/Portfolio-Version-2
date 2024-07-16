@@ -2,29 +2,74 @@ import React, { useState, useEffect } from 'react';
 
 const MouseLocator = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
+    const [previousMousePosition, setPreviousMousePosition] = useState({ x: 0, y: 0 });
+    const [direction, setDirection] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        // Function to update mouse position in state
         const updateMousePosition = (e) => {
-            setMousePosition({ x: e.pageX, y: e.pageY });
+            const newMousePosition = {
+                x: e.clientX,
+                y: e.clientY,
+            };
+
+            // Calculate direction
+            const newDirection = {
+                x: newMousePosition.x - previousMousePosition.x,
+                y: newMousePosition.y - previousMousePosition.y,
+            };
+
+            setMousePosition(newMousePosition);
+            setDirection(newDirection);
+            setPreviousMousePosition(newMousePosition);
         };
 
-        // Add event listener for mousemove when component mounts
-        document.addEventListener('mousemove', updateMousePosition);
+        const updateScrollPosition = () => {
+            setScrollPosition({
+                x: window.scrollX,
+                y: window.scrollY,
+            });
+        };
 
-        // Clean up: Remove event listener when component unmounts
-        return () => document.removeEventListener('mousemove', updateMousePosition);
-    }, []);
+        // Add event listeners for mousemove and scroll when component mounts
+        document.addEventListener('mousemove', updateMousePosition);
+        window.addEventListener('scroll', updateScrollPosition);
+
+        // Initial scroll position
+        updateScrollPosition();
+
+        // Clean up: Remove event listeners when component unmounts
+        return () => {
+            document.removeEventListener('mousemove', updateMousePosition);
+            window.removeEventListener('scroll', updateScrollPosition);
+        };
+    }, [previousMousePosition]);
+
+    // Calculate offset for the inner circle
+    const innerCircleOffset = 1.5; // Adjust this value to control the movement sensitivity
+    const innerCirclePosition = {
+        x: direction.x > 0 ? innerCircleOffset : direction.x < 0 ? -innerCircleOffset : 0,
+        y: direction.y > 0 ? innerCircleOffset : direction.y < 0 ? -innerCircleOffset : 0,
+    };
 
     return (
         <div
-            className="absolute w-7 h-7 border-2 border-blue-400 rounded-full pointer-events-none z-50"
+            className="absolute w-8 h-8 border border-blue-400 rounded-full pointer-events-none z-50 flex items-center justify-center"
+
+            // adjusts outer circle position
             style={{
-                left: mousePosition.x - 12, // Center horizontally: Adjusted to account for half of the total width (7px width + 2px border on each side = 11px total)
-                top: mousePosition.y - 6,  // Center vertically: Adjusted to account for half of the total height (7px height + 2px border on each side = 11px total)
-                boxSizing: 'border-box', // Ensure that border width is included in element's total width and height
+                left: mousePosition.x + scrollPosition.x - 15,
+                top: mousePosition.y + scrollPosition.y - 15,
+                boxSizing: 'border-box',
             }}
-        ></div>
+        >
+            <div
+                className="w-1.5 h-1.5 bg-blue-400 rounded-full"
+                style={{
+                    transform: `translate(${innerCirclePosition.x}px, ${innerCirclePosition.y}px)`,
+                }}
+            ></div>
+        </div>
     );
 };
 
