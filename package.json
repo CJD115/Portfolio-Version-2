@@ -1,8 +1,14 @@
 {
   "name": "vite-project",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "type": "module",  
+  "version": "0.2",
+  "language": "en",
+  "words": [
+      "heroicons",
+      "scrollreveal",
+      "tailwindcss"
+    ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
