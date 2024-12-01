@@ -12,7 +12,7 @@ export default function About() {
                         apps and webpages.
                     </h1>
                     <p className="mb-8 leading-relaxed">
-                        I’m a professional web developer based in Bristol and Southampton, UK. I have 2 years of experience in frontend and backend web development.
+                        I’m a professional/freelance web developer based in Bristol and Southampton, UK. I have 2 years of experience in frontend and backend web development.
                     </p>
                     <div className="flex justify-center">
                         <a
