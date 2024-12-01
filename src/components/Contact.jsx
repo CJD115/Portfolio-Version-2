@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 
-function ContactForm({ onChange }) {
+function ContactForm({ onChange = () => {} }) {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState('');
 
+    // Function to validate form data
     const validate = () => {
         const newErrors = {};
         if (!formData.name) newErrors.name = 'Name is required';
@@ -18,6 +19,7 @@ function ContactForm({ onChange }) {
         return newErrors;
     };
 
+    // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
         const validationErrors = validate();
@@ -26,14 +28,20 @@ function ContactForm({ onChange }) {
             return;
         }
 
-        const data = new URLSearchParams(formData).toString();
-
-        fetch("/", {
+        // Send form data to the server
+        fetch("/.netlify/functions/send-email", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: data,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
         })
-            .then(() => setStatus('Message sent!'))
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.message === 'Email sent successfully') {
+                    setStatus('Message sent!');
+                } else {
+                    setStatus(`Error: ${data.message}`);
+                }
+            })
             .catch((error) => setStatus(`Error: ${error.message}`));
     };
 
@@ -54,6 +62,7 @@ function ContactForm({ onChange }) {
             onSubmit={handleSubmit}
         >
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
             <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
                 Work with me!
             </h2>
@@ -116,7 +125,7 @@ function ContactForm({ onChange }) {
 }
 
 ContactForm.propTypes = {
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
 };
 
 export default ContactForm;
