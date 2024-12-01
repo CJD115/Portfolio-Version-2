@@ -24,7 +24,7 @@ export default function Projects() {
                             className="sm:w-1/2 w-full p-4">
                             <div className="flex relative h-64">
                                 <img
-                                    alt="gallery"
+                                    alt="gallery of projects"
                                     className="absolute inset-0 w-full h-full object-cover object-center"
                                     src={project.image}
                                 />
