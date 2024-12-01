@@ -5,7 +5,7 @@ export const projects = [
         description:
             "My original portfolio website was built using HTML, CSS, and JavaScript. While it initially focused on fundamental concepts, starting with this foundation enabled me to expand and innovate upon the initial idea.",
         image: "./Portfolio_2.png",
-        link: "",
+        link: "https://connordavisportfolio.netlify.app/",
     },
     {
         title: "Creative Portfolio",
@@ -27,7 +27,7 @@ export const projects = [
         title: "Furniture Store",
         subtitle: "PHP",
         description:
-            "This project emphasizes backend development, demonstrating CRUD operations and MySQL database interaction. It features a fully functional email application complete with advanced features such as email filtering, read/unread status tracking, the ability to send emails, and a deleted items folder.",
+            "This project is a backend focused application that showcases SQL database interaction and CRUD operations. It is a function store page that showcases the use of ID to display specific items, and using similar ID to display similar items.",
         image: "./furniture-store.png",
         link: "",
     },
