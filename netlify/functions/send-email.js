@@ -1,4 +1,7 @@
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export async function handler(event, context) {
     const { name, email, message } = JSON.parse(event.body);
@@ -17,7 +20,7 @@ export async function handler(event, context) {
     // Setup email data
     let mailOptions = {
         from: '"Portfolio Contact" <' + process.env.SMTP_USER + '>',
-    to: process.env.SMTP_USER,
+        to: process.env.SMTP_USER,
         subject: 'New Contact Form Submission',
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
