@@ -1,52 +1,62 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const MouseLocator = () => {
+// Custom hook for mouse position tracking
+const useMousePosition = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const prevMousePosition = useRef({ x: 0, y: 0 });
+    const [angle, setAngle] = useState(0);
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            const newMousePosition = { x: e.clientX, y: e.clientY };
+            const deltaX = newMousePosition.x - prevMousePosition.current.x;
+            const deltaY = newMousePosition.y - prevMousePosition.current.y;
+            const newAngle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+            setMousePosition(newMousePosition);
+            setAngle(newAngle);
+            prevMousePosition.current = newMousePosition;
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+        return () => document.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    return { mousePosition, angle };
+};
+
+// Custom hook for scroll position tracking
+const useScrollPosition = () => {
     const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        const updateMousePosition = (e) => {
-            setMousePosition({
-                x: e.clientX,
-                y: e.clientY,
-            });
+        const handleScroll = () => {
+            setScrollPosition({ x: window.scrollX, y: window.scrollY });
         };
 
-        const updateScrollPosition = () => {
-            setScrollPosition({
-                x: window.scrollX,
-                y: window.scrollY,
-            });
-        };
-
-        // Add event listeners for mousemove and scroll when component mounts
-        document.addEventListener('mousemove', updateMousePosition);
-        window.addEventListener('scroll', updateScrollPosition);
-
-        // Initial scroll position
-        updateScrollPosition();
-
-        // Clean up: Remove event listeners when component unmounts
-        return () => {
-            document.removeEventListener('mousemove', updateMousePosition);
-            window.removeEventListener('scroll', updateScrollPosition);
-        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initialize on mount
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    return scrollPosition;
+};
+
+// Main MouseLocator component
+const MouseLocator = () => {
+    const { mousePosition } = useMousePosition();
+    const scrollPosition = useScrollPosition();
 
     return (
         <div
             className="absolute w-8 h-8 border border-blue-400 rounded-full pointer-events-none z-50 flex items-center justify-center transition-transform duration-75"
-            // adjusts outer circle position
             style={{
-                left: mousePosition.x + scrollPosition.x - 0,
-                top: mousePosition.y + scrollPosition.y - 0,
-                boxSizing: 'border-box',
-                transform: `translate(-50%, -50%)`,
+                left: mousePosition.x + scrollPosition.x,
+                top: mousePosition.y + scrollPosition.y,
+                transform: 'translate(-50%, -50%)',
             }}
         >
-            <div
-                className="w-1.5 h-1.5 bg-blue-400 rounded-full transition-transform duration-75"
-            ></div>
+            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
         </div>
     );
 };
