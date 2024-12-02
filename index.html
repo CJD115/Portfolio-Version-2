@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
 
   <head>
     <meta charset="utf-8" />
@@ -14,26 +14,17 @@
     <link rel="apple-touch-icon" href="/public/logo192.png" />
     <link rel="manifest" href="/public/manifest.json" />
     <title>Connor Davis | Hire a Freelance Web Developer Today</title>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Connor Davis",
-      "url": "https://cjdportfolio.netlify.app",
-      "sameAs": [
-        "https://github.com/CJD115"
-      ],
-      "jobTitle": "Frontend Web Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Beyond Years Games"
-      }
-    }
-    </script>
   </head>
 
   <body>
+    <div itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="name" content="Connor Davis" />
+      <meta itemprop="url" content="https://cjdportfolio.netlify.app" />
+      <meta itemprop="jobTitle" content="Frontend Web Developer" />
+      <meta itemprop="worksFor" content="Beyond Years Games" />
+      <meta itemprop="sameAs" content="https://github.com/CJD115" />
+    </div>
+
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
