@@ -9,7 +9,10 @@ export default function About() {
                         apps and webpages.
                     </h1>
                     <p className="mb-8 leading-relaxed" itemProp="description">
-                        I’m a professional/freelance web developer based in Bristol and Southampton, UK. I have 2 years of experience in frontend and backend web development.
+                        I am a professional freelance web developer based in Bristol and Southampton, UK. 
+                        With over 2 years of experience in both frontend and backend web development, I specialize in creating responsive, user-friendly websites and applications using technologies like HTML, CSS, JavaScript, React, and Node.js.
+                        My expertise lies in delivering high-performance web solutions that meet client needs and enhance user experience. 
+                        Whether you require a new website, an upgrade to an existing site, or custom software development, I can help you achieve your digital goals with my comprehensive web development services.
                     </p>
                     <div className="flex justify-center">
                         <a
