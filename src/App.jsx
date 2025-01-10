@@ -1,4 +1,3 @@
-import React from "react";
 import MouseLocator from "./components/MouseLocator";
 import About from "./components/About";
 import Contact from "./components/Contact";

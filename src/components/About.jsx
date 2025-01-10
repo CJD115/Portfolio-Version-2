@@ -1,17 +1,14 @@
-import React from "react";
-import HighlightedSVG from './HighlightedSVG';
-
 export default function About() {
     return (
-        <section id="about" itemscope itemtype="https://schema.org/Person">
+        <section id="about" itemScope itemType="https://schema.org/Person">
             <div className="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center">
                 <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                    <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white" itemprop="name">
-                        Hey! I'm Connor.
+                    <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white" itemProp="name">
+                        Hey! I&apos;m Connor.
                         <br className="hidden lg:inline-block" />I love to build responsive react
                         apps and webpages.
                     </h1>
-                    <p className="mb-8 leading-relaxed" itemprop="description">
+                    <p className="mb-8 leading-relaxed" itemProp="description">
                         I’m a professional/freelance web developer based in Bristol and Southampton, UK. I have 2 years of experience in frontend and backend web development.
                     </p>
                     <div className="flex justify-center">
@@ -34,7 +31,7 @@ export default function About() {
                         className="object-cover object-center rounded"
                         alt="hero image of a developer"
                         src="/coding.svg"
-                        itemprop="image"
+                        itemProp="image"
                     />
                 </div>
             </div>
