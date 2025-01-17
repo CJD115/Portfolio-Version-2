@@ -20,7 +20,7 @@ export const projects = [
         subtitle: "React and PHP",
         description:
             "This project emphasizes backend development, demonstrating CRUD operations and MySQL database interaction. It features a fully functional email application complete with advanced features such as email filtering, read/unread status tracking, the ability to send emails, and a deleted items folder.",
-        image: "./email-client.png",
+        image: "./Screenshot 2025-01-17 143002.png",
         link: "",
     },
     {
